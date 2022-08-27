@@ -17,7 +17,7 @@ const sqliteWrapper = (command, method = "all") => {
 
 const createUsersTable = async () => {
   const createUsersTableQuery =
-    "CREATE TABLE IF NOT EXISTS users (email text, password text)";
+    "CREATE TABLE IF NOT EXISTS users (id integer primary key, email text not null, password text not null)";
   const method = "run";
   try {
     await sqliteWrapper(createUsersTableQuery, method);
