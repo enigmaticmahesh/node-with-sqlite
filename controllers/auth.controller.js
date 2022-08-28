@@ -5,3 +5,9 @@ exports.login = (req, res) => {
     message: "Logging in User",
   });
 };
+
+exports.register = (req, res) => {
+  res.status(200).json({
+    message: "Register User",
+  });
+};

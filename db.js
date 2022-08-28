@@ -15,19 +15,22 @@ const sqliteWrapper = (command, method = "all") => {
   });
 };
 
-const createUsersTable = async () => {
+const createTables = async () => {
   const createUsersTableQuery =
-    "CREATE TABLE IF NOT EXISTS users (id integer primary key, email text not null, password text not null)";
+    "CREATE TABLE IF NOT EXISTS users (id integer primary key autoincrement, email text not null, password text not null)";
+  const createApartmentsTableQuery =
+    "CREATE TABLE IF NOT EXISTS apartments (id integer primary key autoincrement, owner integer not null references users(id), size text not null, rooms text not null, address text not null, rent integer not null, deposit integer not null)";
   const method = "run";
   try {
     await sqliteWrapper(createUsersTableQuery, method);
+    await sqliteWrapper(createApartmentsTableQuery, method);
   } catch (error) {
     console.log("Error while creating Users Table: ", error);
   }
 };
 
 const setupDatabase = () => {
-  createUsersTable();
+  createTables();
 };
 
 module.exports = { sqliteWrapper, setupDatabase };
