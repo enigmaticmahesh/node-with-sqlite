@@ -25,7 +25,7 @@ const createTables = async () => {
     await sqliteWrapper(createUsersTableQuery, method);
     await sqliteWrapper(createApartmentsTableQuery, method);
   } catch (error) {
-    console.log("Error while creating Users Table: ", error);
+    console.log("Error while creating Tables: ", error);
   }
 };
 

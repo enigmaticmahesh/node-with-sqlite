@@ -6,6 +6,7 @@ const authRoutes = require("./routes/auth.route");
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 setupDatabase();
 
