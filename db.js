@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3");
 
 const SQLite3 = sqlite3.verbose();
-const db = new SQLite3.Database("./backend.db");
+const db = new SQLite3.Database(process.env.DB_NAME);
 
 const sqliteWrapper = (command, method = "all") => {
   return new Promise((resolve, reject) => {

@@ -1,8 +1,9 @@
 const http = require("http");
+require('dotenv').config()
 
 const expressApp = require("./app");
 
-const PORT = 5000 || process.env.PORT;
+const PORT = 5001 || process.env.PORT;
 const server = http.createServer(expressApp);
 
 server.on("error", (err) => console.log(`Error while creating server: ${err}`));
