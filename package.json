@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon",
+    "start": "node index.js",
     "test": "jest"
   },
   "dependencies": {
